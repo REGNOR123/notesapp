@@ -1,38 +1,72 @@
-.App {
+/* Modern CSS for AWS Amplify Authentication */
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #6d28d9;
+  --background-color: #f4f4f8;
+  --text-color: #333;
+  --border-radius: 12px;
+}
+
+html, body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.app-header {
+  background: white;
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-logo {
+  width: 100px;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.sign-out-btn {
+  background-color: var(--primary-color);
   color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.sign-out-btn:hover {
+  background-color: var(--secondary-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* Override Amplify Auth UI */
+[data-amplify-authenticator] {
+  --amplify-primary-color: var(--primary-color);
+  --amplify-secondary-color: var(--secondary-color);
+  --amplify-border-radius: var(--border-radius);
+}
+
+[data-amplify-input] {
+  border-radius: var(--border-radius);
+  padding: 12px;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-header {
+    width: 90%;
+    padding: 30px;
   }
 }
